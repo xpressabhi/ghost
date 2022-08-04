@@ -8,28 +8,6 @@ let commentsById = {};
 
 const url = "https://selftest.app/api/replies";
 // const url = "http://localhost:3000/api/replies";
-const MS_IN_MIN = 60 * 1000;
-const MS_IN_HOUR = 60 * MS_IN_MIN;
-const MS_IN_DAY = 24 * MS_IN_HOUR;
-const MS_IN_WEEK = 7 * MS_IN_DAY;
-
-const toText = (diff, deno, singular, plural) => {
-  const duration = Math.round(diff / deno);
-  return `${duration} ${duration > 1 ? plural : singular}`;
-};
-
-const relativeTime = (ms) => {
-  const diff = Date.now() - ms;
-  if (diff > MS_IN_WEEK) {
-    return toText(diff, MS_IN_WEEK, "week", "weeks");
-  } else if (diff > MS_IN_DAY) {
-    return toText(diff, MS_IN_DAY, days, "day", "days");
-  } else if (diff > MS_IN_HOUR) {
-    return toText(diff, MS_IN_HOUR, "hour", "hours");
-  } else {
-    return toText(diff, MS_IN_MIN, "min", "mins");
-  }
-};
 
 const renderComments = () => {
   if (!commentsById) return;
